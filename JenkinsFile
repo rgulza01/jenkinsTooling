@@ -13,7 +13,7 @@ pipeline {
                     sh "docker build -t FlastApp ."
                 }
             }
-            stage('First stage'){
+            stage('Third stage'){
                 steps {
                     /* building the container / app */
                     sh "docker run -d -p 80:5500 --name ContainerName FlastApp"
