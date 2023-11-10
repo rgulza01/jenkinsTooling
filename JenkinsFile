@@ -1,0 +1,23 @@
+pipeline {
+        agent any
+        stages {
+            stage('First stage'){
+                steps {
+                    /* cleaning */
+                    sh "docker rm -f $(docker ps -a -q) || true"
+                }
+            }
+            stage('Second stage'){
+                steps {
+                    /* building the app */
+                    sh "docker build -t FlastApp ."
+                }
+            }
+            stage('First stage'){
+                steps {
+                    /* building the container / app */
+                    sh "docker run -d -p 80:5500 --name ContainerName FlastApp"
+                }
+            }
+        }
+}
