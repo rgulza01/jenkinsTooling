@@ -10,7 +10,7 @@ pipeline {
             stage('Second stage'){
                 steps {
                     /* building the app */
-                    sh "docker build -t flaskapp ."
+                    sh "docker build -t flaskapp . --no-cache"
                 }
             }
             stage('Third stage'){
