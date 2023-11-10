@@ -10,13 +10,13 @@ pipeline {
             stage('Second stage'){
                 steps {
                     /* building the app */
-                    sh "docker build -t FlastApp ."
+                    sh "docker build -t flaskapp ."
                 }
             }
             stage('Third stage'){
                 steps {
                     /* building the container / app */
-                    sh "docker run -d -p 80:5500 --name ContainerName FlastApp"
+                    sh "docker run -d -p 80:5500 --name ContainerName flaskapp"
                 }
             }
         }
